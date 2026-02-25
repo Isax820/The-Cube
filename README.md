@@ -178,4 +178,4 @@ MIT License — free to use and modify.
 
 ## 👤 Author
 
-Personal OpenGL + networking learning project.
+Isax
