@@ -1,177 +1,181 @@
-🧱 The Cube – Python Multiplayer Minecraft Prototype
+# 🧱 The Cube
 
-A simple multiplayer Minecraft-like voxel game made in Python using:
+> A multiplayer voxel game prototype built in Python using Modern OpenGL and TCP networking.
 
-OpenGL (modern shader pipeline)
+![Python](https://img.shields.io/badge/Python-3.11+-blue)
+![OpenGL](https://img.shields.io/badge/OpenGL-3.3+-green)
+![Status](https://img.shields.io/badge/status-prototype-orange)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-GLFW
+---
 
-PyGLM
+## 📖 Overview
 
-TCP socket networking
+**The Cube** is a Minecraft-inspired multiplayer voxel prototype written in Python.  
+It focuses on learning and experimenting with:
 
-This project is a learning prototype focused on:
+- Modern OpenGL rendering (core profile, shaders)
+- Real-time multiplayer networking
+- Client-server architecture
+- 3D mathematics with GLM
+- Basic voxel world systems
 
-3D rendering
+This project is educational and experimental — not a production-ready game engine.
 
-Client/server networking
+---
 
-Multiplayer synchronization
+## ✨ Features
 
-Chat system
+- Modern OpenGL 3.3 rendering pipeline
+- Custom vertex & fragment shaders
+- FPS-style camera
+- Multiplayer TCP server
+- Unique player IDs (UUID-based)
+- Real-time player position synchronization
+- Integrated multiplayer chat system
+- Basic voxel world rendering
 
-Basic voxel world
+---
 
-🚀 Features
+## 🏗 Architecture
 
-Modern OpenGL rendering (no deprecated pipeline)
+The project follows a simple client-server model.
 
-Shader-based projection / view / model matrices
+### Server
+- Handles player connections
+- Assigns unique IDs
+- Broadcasts movement updates
+- Relays chat messages
 
-Multiplayer TCP server
+### Client
+- Connects to server
+- Sends player position updates
+- Renders world and other players
+- Displays chat messages
 
-Unique player IDs (UUID)
+### Communication Protocol
+- TCP sockets
+- JSON-based messages
+- Threaded message handling
 
-Real-time player position synchronization
+---
 
-Global chat system
+## 📂 Project Structure
 
-Basic FPS movement
-
-Simple voxel world
-
-📁 Project Structure
-
+```
 TheCube/
+│
+├── server.py        # Multiplayer server
+├── client.py        # Network layer
+├── main.py          # Game entry point
+├── camera.py        # FPS camera logic
+├── shader.py        # Shader abstraction
+├── world.py         # Basic voxel world
+│
+└── shaders/
+    ├── vertex.glsl
+    └── fragment.glsl
+```
 
-server.py → Multiplayer server
+---
 
-client.py → Network client
+## ⚙️ Requirements
 
-main.py → Game entry point
-
-camera.py → FPS camera
-
-shader.py → Shader loader
-
-world.py → Simple voxel world
-
-shaders/
-
-vertex.glsl
-
-fragment.glsl
-
-📦 Requirements
-
-Python 3.11+ recommended
+- Python 3.11+
+- OpenGL 3.3 compatible GPU
 
 Install dependencies:
 
+```bash
 pip install glfw PyOpenGL PyGLM numpy
+```
 
-▶️ How To Run
+---
 
-1️⃣ Start the server
+## 🚀 Running the Project
 
-Open a terminal:
+### 1️⃣ Start the Server
 
+```bash
 python server.py
+```
 
-You should see:
+Expected output:
+```
 Server started on port 5000
+```
 
-2️⃣ Start the game client
+---
 
-In another terminal:
+### 2️⃣ Start the Client
 
+```bash
 python main.py
+```
 
-3️⃣ Multiplayer Test
+To test multiplayer, launch multiple clients.
 
-Open multiple game windows to simulate multiple players.
+---
 
-🎮 Controls
+## 🎮 Controls
 
-W → Move forward
-S → Move backward
-A → Move left
-D → Move right
+| Key | Action |
+|------|--------|
+| W | Move forward |
+| S | Move backward |
+| A | Move left |
+| D | Move right |
 
-(Chat system implemented but can be extended further.)
+(Mouse look and advanced controls can be extended.)
 
-🛠 Technical Overview
+---
 
-Rendering:
+## 🧠 Technical Stack
 
-OpenGL 3.3 Core
+- Python
+- OpenGL 3.3 Core
+- GLFW (window + input)
+- PyOpenGL
+- PyGLM (matrix math)
+- TCP Sockets
+- JSON protocol
 
-Vertex + Fragment shaders
+---
 
-Projection / View / Model matrices handled with PyGLM
+## ⚠️ Current Limitations
 
-VBO / VAO / EBO
+- No chunk system
+- No block placement/destruction sync
+- No texture atlas
+- No collision physics
+- No interpolation smoothing
+- Server trusts clients (no validation)
 
-Networking:
+This is a prototype built for experimentation and learning.
 
-TCP sockets
+---
 
-JSON message protocol
+## 🔮 Roadmap
 
-Threaded server
+Planned improvements:
 
-Broadcast-based synchronization
+- Chunk-based world system
+- Raycasting for block interaction
+- Server tick rate system
+- Position interpolation
+- Persistent world save
+- UI system (without GLUT)
+- Player animations
+- Basic physics & collisions
 
-Message types:
+---
 
-init
+## 📜 License
 
-join
+MIT License — free to use and modify.
 
-move
+---
 
-leave
+## 👤 Author
 
-chat
-
-⚠️ Limitations
-
-This is a prototype project.
-
-Not yet implemented:
-
-Chunk system
-
-Texture atlas
-
-Block breaking / placing
-
-Physics & collisions
-
-Mouse look
-
-Interpolation smoothing
-
-Security validation (server trusts clients)
-
-🧠 Future Improvements
-
-Chunk-based world optimization
-
-Raycasting system
-
-Player interpolation
-
-Server tick rate
-
-Block placement/destruction sync
-
-Persistent world save
-
-UI system
-
-Better input handling
-
-📜 License
-
-This project have a MIT License
+Personal OpenGL + networking learning project.
